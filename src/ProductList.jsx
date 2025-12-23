@@ -1,6 +1,28 @@
 import React, { useState, useEffect } from 'react';
 import './ProductList.css'
 import CartItem from './CartItem';
+import { useDispatch } from 'reduct-redux';
+import {addItem, updateQuantity, removeItem } from './CartSlice.jsx';
+
+const dispatch = useDisptach();
+
+// Add a new product to the cart
+const handleAddToCart = (product) => {
+    disptahc(addItem(product));
+};
+
+// Update the quantity of an existing item in the cart 
+const handleUpdateQuantity = (item, newQuantity) => {
+dispatch(updateQuanitity({ name: item.name, quantity: newQuantity }));
+};
+
+// Remove an item completely from the cart 
+const handleRemoveItem = (item) => {
+    dispatch(removeItem(item.name));
+};
+
+dispatch(addItem(product));
+
 function ProductList({ onHomeClick }) {
     const [showCart, setShowCart] = useState(false);
     const [showPlants, setShowPlants] = useState(false); // State to control the visibility of the About Us page
@@ -252,6 +274,10 @@ function ProductList({ onHomeClick }) {
     const handleContinueShopping = (e) => {
         e.preventDefault();
         setShowCart(false);
+    };
+
+    const calculateTotalQuantity = () => {
+        return CartItems ? CartItems.reduce((total, item) => total + item.quantity, 0) : 0;
     };
 
     const handleAddToCart = (product) => {
