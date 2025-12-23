@@ -1,4 +1,36 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { useDispatch } from 'react-redux';
+import { updateQuantity, removeItem } from './CartSlice.jsx';
+
+const dispatch = useDispatch();
+
+const handleIncrement = (item) => {
+    dispatch(updateQuantity({
+        name: item.name,
+        quantity: item.quantity + 1
+    }));
+};
+
+const handleDecrement = (item) => {
+    if (item.quantity > 1) {
+        dispatch(updateQuantity({
+            name: item.name, 
+            quantity: item.quantity - 1
+        }));
+    } else {
+        dispatch(removeItem(item.name));
+    }
+};
+
+const handleReomve = (item) => {
+    dispatch(removeItem(item.name));
+};
+
+function calculateTotalCost(item) {
+    const unitPrice = parseFloat(item.cost.substring(1)); // Extract numeric value from cost string like "$10.00"
+    const totalCost = unitPrice * item.quantity; // Mulitpy unit price by quantity
+    return totalCost;
+}
 
 export const CartSlice = createSlice({
   name: 'cart',
