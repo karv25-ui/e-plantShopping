@@ -4,7 +4,7 @@ import CartItem from './CartItem';
 import { useDispatch } from 'react-redux';
 import CartSlice from './CartSlice.jsx';
 
-const dispatch = useDisptach();
+const dispatch = useDispatch();
 
 // Add a new product to the cart
 const handleAddToCart = (product) => {
