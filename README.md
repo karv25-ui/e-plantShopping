@@ -15,7 +15,7 @@ Lucide React: For modern and consistent iconography.
 Vanilla CSS: Custom styling with modern CSS variables and glassmorphism.
 🚀 Getting Started
 Clone the repository:
-git clone https://github.com/Zuhairshad/ibm-react-project-.git
+git clone https://github.com/karv25-ui/e-plantShopping.git
 Install dependencies:
 npm install
 Run the development server:
