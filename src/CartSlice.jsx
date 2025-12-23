@@ -1,6 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { useDispatch } from 'react-redux';
-import { updateQuantity, removeItem } from './CartSlice.jsx';
 import { configureStore } from '@reduxjs/toolkit';
 import cartReducer from './CartSlice';
 
@@ -76,6 +75,5 @@ export const CartSlice = createSlice({
   },
 });
 
-export const { addItem, removeItem, updateQuantity } = CartSlice.actions;
 
 export default CartSlice.reducer;

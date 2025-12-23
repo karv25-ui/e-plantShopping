@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import './ProductList.css'
 import CartItem from './CartItem';
-import { useDispatch } from 'reduct-redux';
-import {addItem, updateQuantity, removeItem } from './CartSlice.jsx';
+import { useDispatch } from 'react-redux';
+import CartSlice from './CartSlice.jsx';
 
 const dispatch = useDisptach();
 
 // Add a new product to the cart
 const handleAddToCart = (product) => {
-    disptahc(addItem(product));
+    dispatch(addItem(product));
 };
 
 // Update the quantity of an existing item in the cart 
